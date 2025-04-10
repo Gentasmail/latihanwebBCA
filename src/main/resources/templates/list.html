@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Daftar Mahasiswa</title></head>
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+<h2>Daftar Mahasiswa</h2>
+<table border="1">
+    <tr><th>Nama</th><th>NIM</th><th>Jurusan</th></tr>
+    <tr th:each="m : ${listMahasiswa}">
+        <td th:text="${m.nama}"></td>
+        <td th:text="${m.nim}"></td>
+        <td th:text="${m.jurusan}"></td>
+    </tr>
+</table>
+</body>
+</html>

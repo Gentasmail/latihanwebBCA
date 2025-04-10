@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Form Mahasiswa</title></head>
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+<h2>Form Mahasiswa</h2>
+<form th:action="@{/mahasiswa}" th:object="${mahasiswa}" method="post">
+    Nama: <input type="text" th:field="*{nama}" /><br>
+    NIM: <input type="text" th:field="*{nim}" /><br>
+    Jurusan: <input type="text" th:field="*{jurusan}" /><br>
+    <button type="submit">Simpan</button>
+</form>
+</body>
+</html>

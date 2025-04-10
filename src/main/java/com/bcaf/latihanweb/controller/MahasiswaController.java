@@ -13,15 +13,21 @@ public class MahasiswaController {
     @Autowired
     private MahasiswaRepository repo;
 
-    @GetMapping("/")
-    public String index(Model model) {
-        model.addAttribute("listMahasiswa", repo.findAll());
-        return "mahasiswa";
+    @GetMapping("/mahasiswa")
+    public String formMahasiswa(Model model) {
+        model.addAttribute("mahasiswa", new Mahasiswa());
+        return "form";
     }
 
-    @PostMapping("/simpan")
-    public String simpan(@ModelAttribute Mahasiswa mahasiswa) {
+    @PostMapping("/mahasiswa")
+    public String submitMahasiswa(@ModelAttribute Mahasiswa mahasiswa) {
         repo.save(mahasiswa);
-        return "redirect:/";
+        return "redirect:/daftar";
+    }
+
+    @GetMapping("/daftar")
+    public String daftarMahasiswa(Model model) {
+        model.addAttribute("listMahasiswa", repo.findAll());
+        return "list";
     }
 }
