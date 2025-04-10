@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Data Mahasiswa</title>
+</head>
+<body>
+    <h2>Input Mahasiswa</h2>
+    <form th:action="@{/simpan}" method="post">
+        <input type="text" name="nama" placeholder="Nama" required>
+        <input type="number" name="umur" placeholder="Umur" required>
+        <button type="submit">Simpan</button>
+    </form>
+
+    <h3>Daftar Mahasiswa</h3>
+    <ul>
+        <li th:each="mhs : ${listMahasiswa}">
+            <span th:text="${mhs.nama}"></span> -
+            <span th:text="${mhs.umur}"></span> tahun
+        </li>
+    </ul>
+</body>
+</html>
